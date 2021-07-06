@@ -1,9 +1,0 @@
-Class name: EchoAppend
-Parent class: None
-Subclasses: None
-
-Responsibilities:
-*append the given content to a file.
-
-Collaborators:
-*File
