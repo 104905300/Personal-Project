@@ -1,0 +1,14 @@
+Class name: Shell
+Parent class: 
+Subclasses: 
+
+Responsibilities:
+*Allow for user input
+*Display relevent messages
+*Provide access to differnt commands
+
+Collaborators:
+*CurrentLocation
+*Input
+*Output
+*InterpretCommands

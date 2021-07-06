@@ -1,0 +1,8 @@
+Class name: CheckIfFileExist
+Parent class: None
+Subclasses: None
+
+Responsibilities:
+*Check if the file exist or not given a (relative or absolute)path
+
+Collaborators:

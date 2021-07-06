@@ -1,0 +1,8 @@
+Class name: Directory
+Parent class: File
+Subclasses: 
+
+Responsibilities:
+*Store contents of its subfiles
+
+Collaborators:

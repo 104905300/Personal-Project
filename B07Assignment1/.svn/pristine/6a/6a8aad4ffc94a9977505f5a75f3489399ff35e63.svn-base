@@ -1,0 +1,15 @@
+Class name: Shell
+Parent class: 
+Subclasses: 
+
+Responsibilities:
+*Open shell
+*Close shell
+*Prompt messages
+*Provide access to differnt commands
+
+Collaborators:
+*Kernel
+*Input
+*Output
+*Commands

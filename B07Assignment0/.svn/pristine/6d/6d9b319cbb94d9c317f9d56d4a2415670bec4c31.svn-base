@@ -1,0 +1,192 @@
+package a0;
+// **********************************************************
+// Assignment0:
+//UTOR user_name:
+//UT Student #:
+//Author:
+//
+//
+//Honor Code: I pledge that this program represents my own
+//program code and that I have coded on my own. I received
+//help from no one in designing and debugging my program.
+//I have also read the plagarism section in the course info
+//sheet of CSC B07 and understand the consequences. Note that 
+//we will be running all your quizzes and assignments for plagarism 
+//check starting sometime in November of 2020. If you do not complete this honor
+//code, we will give you no credit and award you 0% for this component. 
+
+public class Cfiltering {
+  // this is a 2d matrix i.e. user*movie
+  private int userMovieMatrix[][];
+  // this is a 2d matrix i.e. user*movie
+  private float userUserMatrix[][];
+
+  /**
+   * Default Constructor.
+   */
+  public Cfiltering() {
+    // this is 2d matrix of size 1*1
+    userMovieMatrix = new int[1][1];
+    // this is 2d matrix of size 1*1
+    userUserMatrix = new float[1][1];
+  }
+
+  /*
+   * TODO:COMPLETE THIS I.E. APPROPRIATELY CREATE THE userMovieMatrix AND
+   * userUserMatrix WITH CORRECT DIMENSIONS.
+   */
+  /**
+   * Constructs an object which contains two 2d matrices, one of size
+   * users*movies which will store integer movie ratings and one of size
+   * users*users which will store float similarity scores between pairs of
+   * users.
+   * 
+   * @param numberOfUsers Determines size of matrix variables.
+   * @param numberOfMovies Determines size of matrix variables.
+   */
+  public Cfiltering(int numberOfUsers, int numberOfMovies) {
+	  userMovieMatrix = new int[numberOfUsers][numberOfMovies];
+	  userUserMatrix = new float[numberOfUsers][numberOfUsers];
+  }
+
+  /**
+   * The purpose of this method is to populate the UserMovieMatrix. As input
+   * parameters it takes in a rowNumber, columnNumber and a rating value. The
+   * rating value is then inserted in the UserMovieMatrix at the specified
+   * rowNumber and the columnNumber.
+   * 
+   * @param rowNumber The row number of the userMovieMatrix.
+   * @param columnNumber The column number of the userMovieMatrix.
+   * @param ratingValue The ratingValue to be inserted in the userMovieMatrix
+   */
+  public void populateUserMovieMatrix(int rowNumber, int columnNumber,
+      int ratingValue) {
+
+	  userMovieMatrix[rowNumber][columnNumber] = ratingValue;
+  }
+  
+  public void populateUserUserMatrix(int rowNumber, int columnNumber,
+	      float similarity_score) {
+   
+	  userUserMatrix[rowNumber][columnNumber] = similarity_score;
+  }
+  
+  public void createUserUserMatrix() {
+	  float cur_score = 0;
+	  int row = 0;
+	  int col = 0;
+	  // each user will loop through the userMovieMatrix
+	  for (int[] userA : userMovieMatrix) {
+		  for (int[] userB : userMovieMatrix) {
+			  // calculate score then put the score in the matrix
+			  cur_score = calculateSimilarityScore(userA, userB);
+			  populateUserUserMatrix(row, col, cur_score);
+			  col++;
+		  }
+		  col = 0;
+		  row++;
+	  }
+	  
+  }
+  /*
+   * TODO:COMPLETE THIS YOU ARE FREE TO CHANGE THE FUNCTION SIGNATURE BUT DO NOT
+   * CHANGE THE FUNCTION NAME AND DO NOT MAKE THIS FUNCTION STATIC. Add/remove
+   * 
+   * @param AND
+   * 
+   * @return as required below.
+   */
+  /**
+   * Determines how similar each pair of users is based on their ratings. This
+   * similarity value is represented with with a float value between 0 and 1,
+   * where 1 is perfect/identical similarity. Stores these values in the
+   * userUserMatrix.
+   * 
+   * @param COMPLETE THIS IF NEEDED
+   * @param COMPLETE THIS IF NEEDED
+   * @return COMPLETE THIS IF NEEDED
+   */
+  public float calculateSimilarityScore(int[] userA, int[] userB) {
+	  // do first movie for both user, then second... all the way til last.
+	  int cur_movie_num = 0;
+	  float result = 0;
+	  
+	  
+	  while (cur_movie_num < userA.length) {
+		  result+= Math.pow(userA[cur_movie_num] - userB[cur_movie_num], 2);
+		  cur_movie_num++;
+	  }
+	  // square root to get the distance
+	  result = (float)Math.sqrt(result);
+	  result = 1/(1 + result);
+	  
+	  return result;
+  }
+  
+  
+  
+  public void printUserMoiveMatrix() {
+	  for (int[] one_user: userMovieMatrix) {
+		  for(int rating: one_user) {
+			  System.out.print(rating + " ");
+		  }
+		  System.out.println();
+	  }
+  }
+  
+
+  /*
+   * TODO:COMPLETE THIS YOU ARE FREE TO CHANGE THE FUNCTION SIGNATURE BUT DO NOT
+   * CHANGE THE FUNCTION NAME AND DO NOT MAKE THIS FUNCTION STATIC
+   */
+  /**
+   * Prints out the similarity scores of the userUserMatrix, with each row and
+   * column representing each/single user and the cell position (i,j)
+   * representing the similarity score between user i and user j.
+   * 
+   * @param COMPLETE THIS IF NEEDED
+   * @param COMPLETE THIS IF NEEDED
+   * @return COMPLETE THIS IF NEEDED
+   */
+  public void printUserUserMatrix() {
+	  for (float[] one_user: userUserMatrix) {
+		  for(float rating: one_user) {
+			  System.out.print(rating + " ");
+		  }
+		  System.out.println();
+	  }
+  }
+
+  /*
+   * TODO:COMPLETE THIS YOU ARE FREE TO CHANGE THE FUNCTION SIGNATURE BUT DO NOT
+   * CHANGE THE FUNCTION NAME AND DO NOT MAKE THIS FUNCTION STATIC
+   */
+  /**
+   * This function finds and prints the most similar pair of users in the
+   * userUserMatrix.
+   * 
+   * @param COMPLETE THIS IF NEEDED
+   * @param COMPLETE THIS IF NEEDED
+   * @return COMPLETE THIS IF NEEDED
+   */
+
+  public void findAndprintMostSimilarPairOfUsers() {
+
+  }
+
+  /*
+   * TODO:COMPLETE THIS YOU ARE FREE TO CHANGE THE FUNCTION SIGNATURE BUT DO NOT
+   * CHANGE THE FUNCTION NAME AND DO NOT MAKE THIS FUNCTION STATIC
+   */
+  /**
+   * This function finds and prints the most dissimilar pair of users in the
+   * userUserMatrix.
+   * 
+   * @param COMPLETE THIS IF NEEDED
+   * @param COMPLETE THIS IF NEEDED
+   * @return COMPLETE THIS IF NEEDED
+   */
+  public void findAndprintMostDissimilarPairOfUsers() {
+
+  }
+}

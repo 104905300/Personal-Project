@@ -1,0 +1,10 @@
+Class name: Commands
+Parent class: None
+Subclasses: ChangeDirectory, CopyFile, DisplayContentOfFile, Echo, Exit, GetURL, ListFiles, MakeDirectory, MoveFile, PrintWorkingDirectory
+
+Responsibilities:
+*Execute command
+
+Collaborators:
+
+

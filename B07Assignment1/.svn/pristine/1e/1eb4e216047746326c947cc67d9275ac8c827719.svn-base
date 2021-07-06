@@ -1,0 +1,8 @@
+Class name: AccessInternet
+Parent class:
+Subclasses: 
+
+Responsibilities: 
+*Get access to file on the internet via a url
+
+Collaborators:

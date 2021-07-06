@@ -1,0 +1,8 @@
+Class name: CurrentLocation
+Parent class: 
+Subclasses: 
+
+Responsibilities:
+*Record the current path
+
+Collaborators:

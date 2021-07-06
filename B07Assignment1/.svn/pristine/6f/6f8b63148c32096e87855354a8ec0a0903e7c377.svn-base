@@ -1,0 +1,9 @@
+Class name: Mkdir
+Parent class: Commands
+Subclasses: None
+
+Responsibilities:
+*create new directory with a name in a given path(absolute or relative)
+
+Collaborators:
+*Shell
